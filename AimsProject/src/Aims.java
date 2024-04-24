@@ -15,28 +15,6 @@ public class Aims {
 		anOrder.addDigitalVideoDisc(dvd1, dvd2, dvd3, dvd2, dvd1);
 		anOrder.addDigitalVideoDisc(dvd2, dvd3);
 		anOrder.showCart();
-//		
-//		System.out.print("Total cost is: ");
-//		System.out.print(anOrder.totalCost());
-//		System.out.println();
-		
-//		anOrder.removeDigitalVideoDisc(dvd2);
-//		anOrder.removeDigitalVideoDisc(dvd2);
-//		anOrder.removeDigitalVideoDisc(dvd2);
-//		anOrder.removeDigitalVideoDisc(dvd1);
-//		anOrder.removeDigitalVideoDisc(dvd1);
-//		anOrder.removeDigitalVideoDisc(dvd1); // Returns result as not found
-//		// Remaining: 1 dvd2 + 2 dvd3 -> 24.95 + 2*18.99 = 62.93
-//		
-//		System.out.print("Total cost is: ");
-//		System.out.print(anOrder.totalCost());
-//		System.out.println();
-		
-//		System.out.println(dvd1.getCategory());
-//		System.out.println(dvd1.getTitle());
-//		System.out.println(dvd1.getDirector());
-//		System.out.println(dvd1.getLength());
-//		System.out.println(dvd1.getCost());
 	}
 	
 }

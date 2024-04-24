@@ -1,0 +1,6 @@
+
+public class Store {
+
+	private static final int STORE_CAPACITY = 50;
+	private DigitalVideoDisc[] itemsInStore = new DigitalVideoDisc[STORE_CAPACITY];
+}
