@@ -69,19 +69,4 @@ public class Cart {
 		return cost;
 	}
 	
-	public void showDiscs(DigitalVideoDisc dvds[], int count) {
-		for (int i = 0; i < count; i++) {
-			System.out.print(i+1);
-			System.out.print(". ");
-			System.out.println(dvds[i].toString());
-		}
-	}
-	
-	public void showCart() {
-		System.out.println("***********************CART***********************");
-		System.out.println("Ordered Items:");
-		showDiscs(itemsOrdered, qtyOrdered);
-		System.out.println("Total cost: " + totalCost());
-		System.out.println("**************************************************");
-	}
 }

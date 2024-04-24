@@ -52,9 +52,4 @@ public class DigitalVideoDisc {
 		return (this.title.equals(otherDisc.getTitle()) && this.category.equals(otherDisc.getCategory()) 
 				&& this.director.equals(otherDisc.getDirector()) && this.length == otherDisc.getLength() && this.cost == otherDisc.getCost());
 	}
-	
-	public String toString() {
-		return "DVD - " + title + " - " + category + " - " 
-					+ director + " - " + length + ": " + cost + " $";
-	}
 }

@@ -54,7 +54,6 @@ public class DigitalVideoDisc {
 	}
 	
 	public String toString() {
-		return "DVD - " + title + " - " + category + " - " 
-					+ director + " - " + length + ": " + cost + " $";
+		return "DVD - " + title + " - " + category + " - " + director + " - " + length + ": " + cost + " $";
 	}
 }

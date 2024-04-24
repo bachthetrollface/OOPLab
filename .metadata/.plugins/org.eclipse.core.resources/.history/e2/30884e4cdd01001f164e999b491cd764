@@ -69,7 +69,7 @@ public class Cart {
 		return cost;
 	}
 	
-	public void showDiscs(DigitalVideoDisc dvds[], int count) {
+	void showDiscs(DigitalVideoDisc dvds[], int count) {
 		for (int i = 0; i < count; i++) {
 			System.out.print(i+1);
 			System.out.print(". ");
