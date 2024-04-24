@@ -1,0 +1,39 @@
+package hust.soict.dsai.aims.store;
+import hust.soict.dsai.aims.disc.DigitalVideoDisc;
+
+public class Store {
+	static final int CAPACITY = 50;
+	private DigitalVideoDisc[] itemsInStore = new DigitalVideoDisc[CAPACITY];
+	private int dvdCount;
+	
+	public Store() {
+		dvdCount = 0;
+	}
+	
+	boolean isAvailable(DigitalVideoDisc dvd) {
+		for (DigitalVideoDisc disc : itemsInStore) {
+			if (dvd.equals(disc)) return true;
+		}
+		return false;
+	}
+	
+	public void addDVD(DigitalVideoDisc dvd) {
+		if (isAvailable(dvd)) {
+			System.out.println("DVD already available in store.");
+		}
+		else {
+			if (dvdCount == CAPACITY) {
+				System.out.println("Store is full.");
+			}
+			else {
+				itemsInStore[dvdCount] = dvd;
+				dvdCount++;
+				System.out.println(dvd.getTitle() + " DVD has been added to the store!");
+			}
+		}
+	}
+	
+	public void removeDVD() {
+		
+	}
+}

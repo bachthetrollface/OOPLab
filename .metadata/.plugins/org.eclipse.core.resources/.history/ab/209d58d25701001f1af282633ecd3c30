@@ -1,0 +1,33 @@
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
+public class MyMouseListener implements MouseListener {
+
+	@Override
+	public void mouseClicked(MouseEvent evt) {
+		System.out.println("Mouse-button clicked (pressed and released)");
+		tfMouseX.setText(evt.getX() + "");
+		tfMouseY.setText(evt.getY() + "");
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent arg0) {
+		System.out.println("Mouse-button entered source component");
+	}
+
+	@Override
+	public void mouseExited(MouseEvent arg0) {
+		System.out.println("Mouse-button exited source component");
+	}
+
+	@Override
+	public void mousePressed(MouseEvent arg0) {
+		System.out.println("Mouse-button pressed");
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent arg0) {
+		System.out.println("Mouse-button released");
+	}
+
+}
