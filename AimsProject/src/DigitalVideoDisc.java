@@ -57,4 +57,14 @@ public class DigitalVideoDisc {
 		return "DVD - " + title + " - " + category + " - " 
 					+ director + " - " + length + ": " + cost + " $";
 	}
+	
+	public boolean isMatch(String title) {
+		String keywords[] = title.split(",");
+		for (String word : this.title.split(" ")) {
+			for (String keyword : keywords) {
+				if (word.equalsIgnoreCase(keyword)) return true;
+			}
+		}
+		return false;
+	}
 }

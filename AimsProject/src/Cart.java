@@ -84,4 +84,32 @@ public class Cart {
 		System.out.println("Total cost: " + totalCost());
 		System.out.println("**************************************************");
 	}
+	
+	public void searchDigitalVideoDisc(int id) {
+		DigitalVideoDisc foundDVD;
+		for (int i = 0; i < qtyOrdered; i++) {
+			if (itemsOrdered[i].getId() == id) {
+				foundDVD = itemsOrdered[i];
+				System.out.println("Found DVD: " + foundDVD.toString());
+				return;
+			}
+		}
+		System.out.println("DVD not found.");
+	}
+	
+	public void searchDigitalVideoDisc(String title) {
+		DigitalVideoDisc foundDVDs[] = new DigitalVideoDisc[qtyOrdered];
+		int count = 0;
+		for (int i = 0; i < qtyOrdered; i++) {
+			if (itemsOrdered[i].isMatch(title)) {
+				foundDVDs[count] = itemsOrdered[i];
+				count++;
+			}
+		}
+		if (count == 0) System.out.println("No matching DVD was found in the cart.");
+		else {
+			System.out.println("Matching DVD(s) found in the cart:");
+			showDiscs(foundDVDs, count);
+		}
+	}
 }
