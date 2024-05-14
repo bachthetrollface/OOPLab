@@ -8,7 +8,7 @@
 		</list>
 	</section>
 	<section name="ImportExportAction">
-		<item key="ImportExportPage.STORE_SELECTED_IMPORT_WIZARD_ID" value="org.eclipse.ui.wizards.import.ExternalProject"/>
+		<item key="ImportExportPage.STORE_SELECTED_IMPORT_WIZARD_ID" value="org.eclipse.e4.ui.importer.wizard"/>
 		<list key="ImportExportPage.STORE_EXPANDED_IMPORT_CATEGORIES">
 			<item value="org.eclipse.ui.Basic"/>
 		</list>
@@ -30,5 +30,12 @@
 		<list key="textArray">
 			<item value="open java perspective"/>
 		</list>
+	</section>
+	<section name="WorkbenchPreferenceDialog">
+		<item key="DIALOG_X_ORIGIN" value="426"/>
+		<item key="DIALOG_Y_ORIGIN" value="58"/>
+		<item key="DIALOG_WIDTH" value="619"/>
+		<item key="DIALOG_HEIGHT" value="540"/>
+		<item key="DIALOG_FONT_NAME" value="1|.AppleSystemUIFont|11.0|0|COCOA|1|.AppleSystemUIFont"/>
 	</section>
 </section>
