@@ -18,12 +18,16 @@ public class Track implements Playable {
 		return length;
 	}
 	
-	public boolean equals(Track otherTrack) {
-		return (this.title.equals(otherTrack.getTitle()) && this.length == otherTrack.getLength());
-	}
-	
 	public void play() {
 		System.out.println("Playing track: " + getTitle());
 		System.out.println("Track length: " + getLength());
+	}
+	
+	public boolean equals(Object other) {
+		if (other instanceof Track) {
+			Track otherTrack = (Track) other;
+			return (this.title.equals(otherTrack.getTitle()) 
+					&& this.length == otherTrack.getLength());
+		} else return false;
 	}
 }

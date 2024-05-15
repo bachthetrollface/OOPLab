@@ -48,6 +48,13 @@ public abstract class Media {
 		this.cost = cost;
 	}
 	
+	public boolean equals(Object other) {
+		if (other instanceof Media) {
+			Media otherMedia = (Media) other;
+			return this.title.equals(otherMedia.getTitle());
+		} else return false;
+	}
+	
 	
 
 }
