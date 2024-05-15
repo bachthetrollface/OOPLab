@@ -5,10 +5,6 @@ public class Track implements Playable {
 	private String title;
 	private int length;
 	
-	public Track() {
-		this("", 0);
-	}
-	
 	public Track(String title, int length) {
 		this.title = title;
 		this.length = length;

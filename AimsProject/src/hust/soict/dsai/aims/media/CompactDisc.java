@@ -11,17 +11,18 @@ public class CompactDisc extends Disc implements Playable {
 		return artist;
 	}
 	
-	public CompactDisc() {
-		this(0, "", "", 0.0f, "", 0, "");
-	}
-	
-	public CompactDisc(String artist) {
-		super();
+	public CompactDisc(String title, String artist) {
+		super(title);
 		this.artist = artist;
 	}
+	
+	public CompactDisc(String title, String artist, String director) {
+		this(title, artist);
+		setDirector(director);
+	}
 
-	public CompactDisc(int id, String title, String category, float cost, String director, int length, String artist) {
-		super(id, title, category, cost, director, length);
+	public CompactDisc(String title, String category, float cost, String director, String artist) {
+		super(title, category, cost, director, 0);
 		this.artist = artist;
 	}
 	

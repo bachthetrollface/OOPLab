@@ -2,16 +2,16 @@ package hust.soict.dsai.aims.media;
 
 public class DigitalVideoDisc extends Disc implements Playable {
 	
-	private static int nbDigitalVideoDisc = 0;
+	public DigitalVideoDisc(String title) {
+		super(title);
+	}
 	
-	public DigitalVideoDisc() {
-		this("", "", 0.0f, "", 0);
+	public DigitalVideoDisc(String title, String director, int length) {
+		super(title, director, length);
 	}
 	
 	public DigitalVideoDisc(String title, String category, float cost, String director, int length) {
-		super(0, title, category, cost, director, length);
-		nbDigitalVideoDisc++;
-		setId(nbDigitalVideoDisc);
+		super(title, category, cost, director, length);
 	}
 	
 	public boolean equals(DigitalVideoDisc otherDisc) {
