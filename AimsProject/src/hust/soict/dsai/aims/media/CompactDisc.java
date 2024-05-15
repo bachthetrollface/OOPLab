@@ -34,7 +34,7 @@ public class CompactDisc extends Disc implements Playable {
 		else {
 			tracks.add(newTrack);
 			setLength(getLength() + newTrack.getLength());
-			System.out.println("Track " + newTrack.getTitle() + " is added.");
+			System.out.println("Track " + newTrack.getTitle() + " is added to CD " + getTitle());
 		}
 	}
 	
@@ -52,5 +52,17 @@ public class CompactDisc extends Disc implements Playable {
 		System.out.println("Playing CD: " + getTitle());
 		System.out.println("CD length: " + getLength());
 		for (Track track : tracks) track.play();
+	}
+	
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("CD: ");
+		sb.append(getTitle());
+		sb.append(" by " + artist + " - ");
+		sb.append("Director: " + getDirector());
+		sb.append(" - Category: ");
+		sb.append(getCategory());
+		sb.append(" - $" + getCost());
+		return sb.toString();
 	}
 }

@@ -14,11 +14,6 @@ public class DigitalVideoDisc extends Disc implements Playable {
 		super(title, category, cost, director, length);
 	}
 	
-	public String toString() {
-		return "DVD - " + getTitle() + " - " + getCategory() + " - " 
-					+ getDirector() + " - " + getLength() + ": " + getCost() + " $";
-	}
-	
 	public boolean isMatch(String title) {
 		String keywords[] = title.split(",");
 		for (String word : getTitle().split(" ")) {
@@ -32,5 +27,17 @@ public class DigitalVideoDisc extends Disc implements Playable {
 	public void play() {
 		System.out.println("Playing DVD: " + getTitle());
 		System.out.println("DVD length: " + getLength());
+	}
+	
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("DVD: ");
+		sb.append(getTitle());
+		sb.append(" - Director: ");
+		sb.append(getDirector());
+		sb.append(" - Category: ");
+		sb.append(getCategory());
+		sb.append(" - $" + getCost());
+		return sb.toString();
 	}
 }

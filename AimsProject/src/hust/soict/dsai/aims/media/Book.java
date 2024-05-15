@@ -26,7 +26,7 @@ public class Book extends Media {
 		}
 		else {
 			authors.add(authorName);
-			System.out.println("Author " + authorName + " is added.");
+			System.out.println("Author " + authorName + " is added to book " + getTitle());
 		}
 	}
 	
@@ -39,4 +39,17 @@ public class Book extends Media {
 		else System.out.println("Author is not available.");
 	}
 	
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("Book: ");
+		sb.append(getTitle() + " by ");
+		for (String author : authors) {
+			sb.append(author);
+			sb.append(", ");
+		}
+		sb.append(" - Category: ");
+		sb.append(getCategory());
+		sb.append(" - $" + getCost());
+		return sb.toString();
+	}
 }

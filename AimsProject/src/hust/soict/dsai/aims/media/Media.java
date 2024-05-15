@@ -55,6 +55,5 @@ public abstract class Media {
 		} else return false;
 	}
 	
-	
 
 }
