@@ -1,12 +1,11 @@
 package hust.soict.dsai.aims.media;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class CompactDisc extends Disc implements Playable {
 
 	private String artist;
-	private List<Track> tracks = new ArrayList<Track>();
+	private ArrayList<Track> tracks = new ArrayList<Track>();
 	
 	public String getArtist() {
 		return artist;
@@ -14,6 +13,11 @@ public class CompactDisc extends Disc implements Playable {
 	
 	public CompactDisc() {
 		this(0, "", "", 0.0f, "", 0, "");
+	}
+	
+	public CompactDisc(String artist) {
+		super();
+		this.artist = artist;
 	}
 
 	public CompactDisc(int id, String title, String category, float cost, String director, int length, String artist) {

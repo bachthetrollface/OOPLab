@@ -6,7 +6,6 @@ import java.util.ArrayList;
 public class Cart {
 	
 	private ArrayList<Media> itemsOrdered = new ArrayList<Media>();
-	private float totalCost = 0.0f;
 	
 	public Cart() { }
 
@@ -16,7 +15,6 @@ public class Cart {
 			return;
 		} else {
 			itemsOrdered.add(media);
-			totalCost += media.getCost();
 			System.out.println(media.getTitle() + " is added to cart");
 		}
 	}
@@ -24,21 +22,20 @@ public class Cart {
 	public void removeMedia(Media media) {
 		if (itemsOrdered.contains(media)) {
 			itemsOrdered.remove(media);
-			totalCost -= media.getCost();
 			System.out.println(media.getTitle() + " is removed from cart");
 		} else {
 			System.out.println("Item not found in cart");
 		}
 	}
 	
-//	public float totalCost() {
-//		float cost = 0;
-//		for (int i = 0; i < qtyOrdered; i++) {
-//			cost += itemsOrdered[i].getCost();
-//		}
-//		return cost;
-//	}
-//	
+	public float totalCost() {
+		float cost = 0;
+		for (Media media : itemsOrdered) {
+			cost += media.getCost();
+		}
+		return cost;
+	}
+	
 //	public void showDiscs(DigitalVideoDisc dvds[], int count) {
 //		for (int i = 0; i < count; i++) {
 //			System.out.print(i+1);
