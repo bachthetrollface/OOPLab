@@ -1,39 +1,27 @@
 package hust.soict.dsai.aims.media;
 
-public class DigitalVideoDisc extends Media {
+public class DigitalVideoDisc extends Disc {
+	
 	private static int nbDigitalVideoDisc = 0;
-	private String director;
-	private int length;
-	
-	public String getDirector() {
-		return director;
-	}
-	
-	public void setDirector(String director) {
-		this.director = director;
-	}
-	
-	public int getLength() {
-		return length;
-	}
-	
-	public void setLength(int length) {
-		this.length = length;
-	}
 	
 	public DigitalVideoDisc() {
+		this("", "", 0.0f, "", 0);
+	}
+	
+	public DigitalVideoDisc(String title, String category, float cost, String director, int length) {
+		super(0, title, category, cost, director, length);
 		nbDigitalVideoDisc++;
 		setId(nbDigitalVideoDisc);
 	}
 	
 	boolean equals(DigitalVideoDisc otherDisc) {
 		return (getTitle().equals(otherDisc.getTitle()) && getCategory().equals(otherDisc.getCategory()) 
-				&& this.director.equals(otherDisc.getDirector()) && this.length == otherDisc.getLength() && getCost() == otherDisc.getCost());
+				&& getDirector().equals(otherDisc.getDirector()) && getLength() == otherDisc.getLength() && getCost() == otherDisc.getCost());
 	}
 	
 	public String toString() {
 		return "DVD - " + getTitle() + " - " + getCategory() + " - " 
-					+ director + " - " + length + ": " + getCost() + " $";
+					+ getDirector() + " - " + getLength() + ": " + getCost() + " $";
 	}
 	
 	public boolean isMatch(String title) {

@@ -8,7 +8,14 @@ public abstract class Media {
 	private float cost;
 	
 	public Media() {
-		
+		this(0, "", "", 0.0f);
+	}
+	
+	public Media(int id, String title, String category, float cost) {
+		this.id = id;
+		this.title = title;
+		this.category = category;
+		this.cost = cost;
 	}
 
 	public int getId() {
