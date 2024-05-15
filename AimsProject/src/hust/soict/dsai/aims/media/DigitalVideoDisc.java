@@ -14,7 +14,7 @@ public class DigitalVideoDisc extends Disc {
 		setId(nbDigitalVideoDisc);
 	}
 	
-	boolean equals(DigitalVideoDisc otherDisc) {
+	public boolean equals(DigitalVideoDisc otherDisc) {
 		return (getTitle().equals(otherDisc.getTitle()) && getCategory().equals(otherDisc.getCategory()) 
 				&& getDirector().equals(otherDisc.getDirector()) && getLength() == otherDisc.getLength() && getCost() == otherDisc.getCost());
 	}

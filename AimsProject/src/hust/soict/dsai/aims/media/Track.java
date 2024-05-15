@@ -21,4 +21,8 @@ public class Track {
 	public int getLength() {
 		return length;
 	}
+	
+	public boolean equals(Track otherTrack) {
+		return (this.title.equals(otherTrack.getTitle()) && this.length == otherTrack.getLength());
+	}
 }
