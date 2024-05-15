@@ -6,10 +6,9 @@ import java.util.ArrayList;
 public class Cart {
 	
 	private ArrayList<Media> itemsOrdered = new ArrayList<Media>();
+	private float totalCost = 0.0f;
 	
-	public Cart() {
-		
-	}
+	public Cart() { }
 
 	public void addMedia(Media media) {
 		if (itemsOrdered.contains(media)) {
@@ -17,6 +16,7 @@ public class Cart {
 			return;
 		} else {
 			itemsOrdered.add(media);
+			totalCost += media.getCost();
 			System.out.println(media.getTitle() + " is added to cart");
 		}
 	}
@@ -24,6 +24,7 @@ public class Cart {
 	public void removeMedia(Media media) {
 		if (itemsOrdered.contains(media)) {
 			itemsOrdered.remove(media);
+			totalCost -= media.getCost();
 			System.out.println(media.getTitle() + " is removed from cart");
 		} else {
 			System.out.println("Item not found in cart");

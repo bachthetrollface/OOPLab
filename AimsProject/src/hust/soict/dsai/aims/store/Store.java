@@ -1,73 +1,30 @@
 package hust.soict.dsai.aims.store;
-import hust.soict.dsai.aims.media.DigitalVideoDisc;
+
+import java.util.ArrayList;
+import hust.soict.dsai.aims.media.Media;
 
 public class Store {
 
-	static final int STORE_CAPACITY = 50;
-	private DigitalVideoDisc[] itemsInStore = new DigitalVideoDisc[STORE_CAPACITY];
-	private int dvdCount;
+	private ArrayList<Media> itemsInStore = new ArrayList<Media>();
 	
-	public Store() {
-		this.dvdCount = 0;
-	}
+	public Store() { }
 	
-	boolean isAvailable(DigitalVideoDisc dvd) {
-		for (int i = 0; i < dvdCount; i++) {
-			if (itemsInStore[i].equals(dvd)) return true;
-		}
-		return false;
-	}
-	
-	public void addDVD(DigitalVideoDisc dvd) {
-		if (isAvailable(dvd)) {
-			System.out.println("DVD already available in store.");
+	public void addMedia(Media media) {
+		if (itemsInStore.contains(media)) {
+			System.out.println("Item is already in store");
 			return;
-		}
-		else {
-			if (dvdCount == STORE_CAPACITY) {
-				System.out.println("Store is full.");
-				return;
-			}
-			else {
-				itemsInStore[dvdCount] = dvd;
-				dvdCount++;
-				System.out.println(dvd.getTitle() + " DVD has been added to the store!");
-			}
+		} else {
+			itemsInStore.add(media);
+			System.out.println(media.getTitle() + " is added to store");
 		}
 	}
 	
-	public void removeDVD(String title) {
-		for (int i = 0; i < dvdCount; i++) {
-			if (itemsInStore[i].getTitle().equalsIgnoreCase(title)) {
-				for (int j = i + 1; j < dvdCount; j++) {
-					itemsInStore[i] = itemsInStore[j];
-					i++;
-				}
-				dvdCount--;
-				System.out.println("DVD has been removed from the store!");
-				return;
-			}
+	public void removeMedia(Media media) {
+		if (itemsInStore.contains(media)) {
+			itemsInStore.remove(media);
+			System.out.println(media.getTitle() + " is removed from store");
+		} else {
+			System.out.println("Item not found in store");
 		}
-		System.out.println("DVD not found in store.");
 	}
-	
-	public void removeDVD(int id) {
-		for (int i = 0; i < dvdCount; i++) {
-			if (itemsInStore[i].getId() == id) {
-				for (int j = i + 1; j < dvdCount; j++) {
-					itemsInStore[i] = itemsInStore[j];
-					i++;
-				}
-				dvdCount--;
-				System.out.println("DVD has been removed from the store!");
-				return;
-			}
-		}
-		System.out.println("DVD not found in store.");
-	}
-	
-	public void removeDVD(DigitalVideoDisc dvd) {
-		removeDVD(dvd.getId());
-	}
-	
 }
