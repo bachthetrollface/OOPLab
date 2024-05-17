@@ -20,4 +20,7 @@
     <fullyQualifiedTypeName name="hust.soict.dsai.aims.media.Media"/>
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.util.Comparator"/>
+    <fullyQualifiedTypeName name="hust.soict.dsai.aims.store.Store"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
 </qualifiedTypeNameHistroy>

@@ -30,4 +30,13 @@ public class Track implements Playable {
 					&& this.length == otherTrack.getLength());
 		} else return false;
 	}
+	
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append(title);
+		sb.append(" - ");
+		sb.append(length);
+		sb.append(" minutes");
+		return sb.toString();
+	}
 }

@@ -56,6 +56,7 @@ public class CompactDisc extends Disc implements Playable {
 	
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
+		sb.append("(" + getId() + ") ");
 		sb.append("CD: ");
 		sb.append(getTitle());
 		sb.append(" by " + artist + " - ");
@@ -65,4 +66,21 @@ public class CompactDisc extends Disc implements Playable {
 		sb.append(" - $" + getCost());
 		return sb.toString();
 	}
+	
+	public void showDetails() {
+		StringBuilder sbTracks = new StringBuilder();
+		sbTracks.append("Tracks: ");
+		for(Track track : tracks) {
+			sbTracks.append("\n\t");
+			sbTracks.append(track.toString());
+		}
+		System.out.println("ID: " + getId());
+		System.out.println("Title: " + getTitle());
+		System.out.println("Director: " + getDirector());
+		System.out.println("Category: " + getCategory());
+		System.out.println(sbTracks.toString());
+		System.out.println("Length: " + getLength());
+		System.out.println("Cost: $" + getCost());
+	}
+	
 }

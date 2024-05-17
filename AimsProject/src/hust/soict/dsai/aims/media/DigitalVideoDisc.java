@@ -31,6 +31,7 @@ public class DigitalVideoDisc extends Disc implements Playable {
 	
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
+		sb.append("(" + getId() + ") ");
 		sb.append("DVD: ");
 		sb.append(getTitle());
 		sb.append(" - Director: ");

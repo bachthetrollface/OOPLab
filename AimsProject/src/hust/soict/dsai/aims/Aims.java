@@ -8,19 +8,16 @@ import hust.soict.dsai.aims.store.Store;
 
 public class Aims {
 	
-	public Store store = new Store();
-	public Cart anOrder = new Cart();
+	public static Store store = new Store();
 	
 	public static void main(String[] args) {
+		Cart anOrder = new Cart();
 		Scanner scanner = new Scanner(System.in);
-		showMenu(scanner);
-		
-		
-		
+		showMenu(scanner, anOrder);
 		scanner.close();
 	}
 	
-	public static void showMenu(Scanner scanner) {
+	public static void showMenu(Scanner scanner, Cart cart) {
 		while(true) {
 			System.out.println("AIMS: ");
 			System.out.println("----------------------------------");
@@ -34,21 +31,24 @@ public class Aims {
 			switch(input) {
 			case 0: break;
 			case 1: 
-				storeMenu(scanner);
+				storeMenu(scanner, cart);
 				break;
 			case 2:
-				//add/remove media from store
+				updateStore(scanner);
 				break;
 			case 3:
-				cartMenu(scanner);
+				cartMenu(scanner, cart);
 				break;
+			default:
+				System.out.println("Incorrect option! Please choose again:");
 			}
 			if (input == 0) break;
 		}
 	}
 	
-	public static void storeMenu(Scanner scanner) {
+	public static void storeMenu(Scanner scanner, Cart cart) {
 		while(true) {
+			store.viewStore();
 			System.out.println("Options: ");
 			System.out.println("----------------------------------");
 			System.out.println("1. See a media's details");
@@ -62,47 +62,60 @@ public class Aims {
 			switch(input) {
 			case 0: break;
 			case 1:
-				// see details
+				store.consoleViewMediaDetails();
 				break;
 			case 2:
-				// add media
+				cart.consoleAddMedia(store);
 				break;
 			case 3:
-				//play media
+				store.consolePlayMedia();
 				break;
 			case 4:
-				cartMenu(scanner);
+				cartMenu(scanner, cart);
 				break;
+			default:
+				System.out.println("Incorrect option! Please choose again:");
 			}
 			if (input == 0) break;
 		}
 	}
 	
-	public static void mediaDetailsMenu(Scanner scanner) {
+	public static void mediaDetailsMenu(Scanner scanner, Cart cart, Media media) {
+		media.showDetails();
+		System.out.println("Options: ");
+		System.out.println("----------------------------------");
+		System.out.println("1. Add to cart");
+		if(media instanceof Playable) {
+			System.out.println("2. Play");
+		}
+		System.out.println("0. Back");
+		System.out.println("----------------------------------");
+		if(media instanceof Disc) System.out.println("Please choose a number: 0-1");
+		else System.out.println("Please choose a number: 0-1-2");
 		while(true) {
-			System.out.println("Options: ");
-			System.out.println("----------------------------------");
-			System.out.println("1. Add to cart");
-			System.out.println("2. Play"); //if is Disc
-			System.out.println("0. Back");
-			System.out.println("----------------------------------");
-			System.out.println("Please choose a number: 0-1-2");
 			int input = scanner.nextInt();
 			switch(input) {
 			case 0: break;
 			case 1:
-				// add to cart
+				cart.addMedia(media);
+				System.out.println(media.getTitle() + " is added to cart.");
 				break;
 			case 2:
-				// play if is Disc
-				break;
+				if(media instanceof Playable) {
+					Playable disc = (Playable) media;
+					disc.play();
+					break;
+				}
+			default:
+				System.out.println("Incorrect option! Please choose again:");
 			}
 			if (input == 0) break;
 		}
 	}
 	
-	public static void cartMenu(Scanner scanner) {
+	public static void cartMenu(Scanner scanner, Cart cart) {
 		while(true) {
+			cart.viewCart();
 			System.out.println("Options: ");
 			System.out.println("----------------------------------");
 			System.out.println("1. Filter medias in cart");
@@ -120,20 +133,74 @@ public class Aims {
 				// filter medias
 				break;
 			case 2:
-				// sort medias in cart
+				sortingOptions(scanner, cart);
 				break;
 			case 3:
-				// remove media
+				cart.consoleRemoveMedia();
 				break;
 			case 4:
-				//play media
+				cart.consolePlayMedia();
 				break;
 			case 5:
 				System.out.println("An order is created.");
-				//clear cart
+				cart.clear();
 				break;
+			default:
+				System.out.println("Incorrect option! Please choose again:");
 			}
 			if (input == 0) break;
+		}
+	}
+	
+	public static void sortingOptions(Scanner scanner, Cart cart) {
+		System.out.println("Please choose ordering rule:");
+		System.out.println("(Note: The remaining rule will be used as secondary rule)");
+		System.out.println("1. Sort ascending by title");
+		System.out.println("2. Sort descending by cost");
+		System.out.println("0. Back");
+		while (true) {
+			int input = scanner.nextInt();
+			switch(input) {
+			case 0: break;
+			case 1:
+				cart.sortByTitleCost();
+				System.out.println("Cart sorted by title.");
+				break;
+			case 2:
+				cart.sortByCostTitle();
+				System.out.println("Cart sorted by cost.");
+				break;
+			default:
+				System.out.println("Incorrect option! Please choose again:");
+				continue;
+			}
+			break;
+		}
+	}
+	
+	public static void updateStore(Scanner scanner) {
+		while (true) {
+			store.viewStore();
+			System.out.println("Options: ");
+			System.out.println("----------------------------------");
+			System.out.println("1. Add media to store");
+			System.out.println("2. Remove media from store");
+			System.out.println("0. Back");
+			System.out.println("----------------------------------");
+			System.out.println("Please choose a number: 0-1-2");
+			int input = scanner.nextInt();
+			switch(input) {
+			case 0: break;
+			case 1:
+				store.consoleAddMedia();
+				break;
+			case 2:
+				store.consoleRemoveMedia();
+				break;
+			default:
+				System.out.println("Incorrect option! Please choose again:");
+			}
+			if(input == 0) break;
 		}
 	}
 }

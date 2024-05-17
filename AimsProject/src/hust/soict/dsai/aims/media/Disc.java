@@ -37,5 +37,15 @@ public class Disc extends Media {
 		this.length = length;
 	}
 
+	public void showDetails() {
+		System.out.println("ID: " + getId());
+		System.out.println("Title: " + getTitle());
+		System.out.println("Director: " + director);
+		System.out.println("Category: " + getCategory());
+		System.out.println("Length: " + length);
+		System.out.println("Cost: $" + getCost());
+	}
+	
+	public void play() {} // for polymorph purposes
 	
 }

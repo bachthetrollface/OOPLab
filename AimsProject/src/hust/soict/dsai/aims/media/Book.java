@@ -41,6 +41,7 @@ public class Book extends Media {
 	
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
+		sb.append("(" + getId() + ") ");
 		sb.append("Book: ");
 		sb.append(getTitle() + " by ");
 		for (String author : authors) {
@@ -51,5 +52,19 @@ public class Book extends Media {
 		sb.append(getCategory());
 		sb.append(" - $" + getCost());
 		return sb.toString();
+	}
+	
+	public void showDetails() {
+		StringBuilder sbAuthors = new StringBuilder();
+		sbAuthors.append("Author(s): ");
+		for(String author : authors) {
+			sbAuthors.append(author);
+			sbAuthors.append("    ");
+		}
+		System.out.println("ID: " + getId());
+		System.out.println("Title: " + getTitle());
+		System.out.println(sbAuthors.toString());
+		System.out.println("Category: " + getCategory());
+		System.out.println("Cost: $" + getCost());
 	}
 }

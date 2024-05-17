@@ -62,5 +62,9 @@ public abstract class Media {
 		} else return false;
 	}
 	
+	public abstract void showDetails();
 
+	public boolean match(String title, int id) {
+		return (title.equals(this.title)) && (id == this.id);
+	}
 }
