@@ -53,6 +53,28 @@ public class Cart {
 		return result;
 	}
 	
+	public void filterMedia(int id) {
+		System.out.println("Found media(s):");
+		for (Media media : itemsOrdered) {
+			if (media.getId() == id) {
+				media.showDetails();
+				return;
+			}
+		}
+	}
+	
+	public void filterMedia(String[] keywords) {
+		System.out.println("Found media(s):");
+		for (Media media : itemsOrdered) {
+			for (String keyword : keywords) {
+				if (media.getTitle().contains(keyword)) {
+					System.out.println(media.toString());
+					break;
+				}
+			}
+		}
+	}
+	
 	public float totalCost() {
 		float cost = 0;
 		for (Media media : itemsOrdered) {

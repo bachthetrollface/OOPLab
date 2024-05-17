@@ -8,13 +8,29 @@ import hust.soict.dsai.aims.store.Store;
 
 public class Aims {
 	
-	public static Store store = new Store();
+	private static Store store = new Store();
 	
 	public static void main(String[] args) {
+		initializeStore();
 		Cart anOrder = new Cart();
 		Scanner scanner = new Scanner(System.in);
 		showMenu(scanner, anOrder);
 		scanner.close();
+	}
+	
+	public static void initializeStore() {
+		Book book1 = new Book("Harry Potter Vol. 1", "Magical", 19.99f);
+		book1.addAuthor("J. K. Rowling");
+		
+		CompactDisc cd1 = new CompactDisc("The Marshall Mathers LP", "Rap", 30.00f, "Dr. Dre", "Eminem");
+		Track track1 = new Track("Stan", 5);
+		Track track2 = new Track("Criminal", 4);
+		cd1.addTrack(track1, track2);
+		
+		DigitalVideoDisc dvd1 = new DigitalVideoDisc("Star Wars", "Sci-fi", 35, "George Lucas", 150);
+		
+		store.addMedia(book1, cd1, dvd1);
+		
 	}
 	
 	public static void showMenu(Scanner scanner, Cart cart) {
@@ -29,6 +45,8 @@ public class Aims {
 			System.out.println("----------------------------------");
 			System.out.println("Please choose a number: 0-1-2-3");
 			input = scanner.nextInt();
+			scanner.nextLine();
+			
 			switch(input) {
 			case 0: return;
 			case 1: 
@@ -60,6 +78,8 @@ public class Aims {
 			System.out.println("----------------------------------");
 			System.out.println("Please choose a number: 0-1-2-3-4");
 			input = scanner.nextInt();
+			scanner.nextLine();
+			
 			switch(input) {
 			case 0: return;
 			case 1:
@@ -93,8 +113,11 @@ public class Aims {
 		System.out.println("----------------------------------");
 		if(media instanceof Disc) System.out.println("Please choose a number: 0-1");
 		else System.out.println("Please choose a number: 0-1-2");
+		
 		while(true) {
 			input = scanner.nextInt();
+			scanner.nextLine();
+			
 			switch(input) {
 			case 0: return;
 			case 1:
@@ -103,8 +126,8 @@ public class Aims {
 				break;
 			case 2:
 				if(media instanceof Playable) {
-					Playable disc = (Playable) media;
-					disc.play();
+					Playable p = (Playable) media;
+					p.play();
 					break;
 				}
 			default:
@@ -128,10 +151,12 @@ public class Aims {
 			System.out.println("----------------------------------");
 			System.out.println("Please choose a number: 0-1-2-3-4-5");
 			input = scanner.nextInt();
+			scanner.nextLine();
+			
 			switch(input) {
 			case 0: return;
 			case 1:
-				// filter medias
+				filterCart(scanner, cart);
 				break;
 			case 2:
 				sortingOptions(scanner, cart);
@@ -161,6 +186,8 @@ public class Aims {
 		System.out.println("0. Back");
 		while (true) {
 			input = scanner.nextInt();
+			scanner.nextLine();
+			
 			switch(input) {
 			case 0: return;
 			case 1:
@@ -190,6 +217,8 @@ public class Aims {
 			System.out.println("----------------------------------");
 			System.out.println("Please choose a number: 0-1-2");
 			input = scanner.nextInt();
+			scanner.nextLine();
+			
 			switch(input) {
 			case 0: return;
 			case 1:
@@ -208,6 +237,7 @@ public class Aims {
 		Media newMedia;
 		String input;
 		String[] info;
+		
 		System.out.println("Enter details of media in one of the following format:");
 		System.out.println("\tBook,Title,Category,Cost");
 		System.out.println("\tCD,Title,Category,Cost,Director,Artist");
@@ -245,6 +275,8 @@ public class Aims {
 		String title = scanner.nextLine();
 		System.out.println("Enter the ID of the media:");
 		int id = scanner.nextInt();
+		scanner.nextLine();
+		
 		if (store.isAvailable(title, id)) {
 			Media media = store.findMedia(title, id);
 			store.removeMedia(media);
@@ -257,6 +289,8 @@ public class Aims {
 		String title = scanner.nextLine();
 		System.out.println("Enter the ID of the media:");
 		int id = scanner.nextInt();
+		scanner.nextLine();
+		
 		if (store.isAvailable(title, id)) {
 			Media media = store.findMedia(title, id);
 			media.showDetails();
@@ -269,11 +303,13 @@ public class Aims {
 		String title = scanner.nextLine();
 		System.out.println("Enter the ID of the media:");
 		int id = scanner.nextInt();
+		scanner.nextLine();
+		
 		if (store.isAvailable(title, id)) {
 			Media media = store.findMedia(title, id);
-			if (media instanceof Disc) {
-				Disc disc = (Disc) media;
-				disc.play();
+			if (media instanceof Playable) {
+				Playable p = (Playable) media;
+				p.play();
 			}
 			else System.out.println("The selected media is unplayable.");
 		}
@@ -285,6 +321,7 @@ public class Aims {
 		String title = scanner.nextLine();
 		System.out.println("Enter the ID of the media:");
 		int id = scanner.nextInt();
+		scanner.nextLine();
 		
 		if (store.isAvailable(title, id)) {
 			Media result = store.findMedia(title, id);
@@ -298,6 +335,8 @@ public class Aims {
 		String title = scanner.nextLine();
 		System.out.println("Enter the ID of the media:");
 		int id = scanner.nextInt();
+		scanner.nextLine();
+		
 		if (cart.isAvailable(title, id)) {
 			Media result = cart.findMedia(title, id);
 			cart.removeMedia(result);
@@ -310,16 +349,49 @@ public class Aims {
 		String title = scanner.nextLine();
 		System.out.println("Enter the ID of the media:");
 		int id = scanner.nextInt();
+		scanner.nextLine();
 		
 		if (cart.isAvailable(title, id)) {
 			Media result = cart.findMedia(title, id);
-			if (result instanceof Disc) {
-				Disc disc = (Disc) result;
-				disc.play();
+			if (result instanceof Playable) {
+				Playable p = (Playable) result;
+				p.play();
 			}
 			else System.out.println("The selected media is unplayable.");
 		}
 		else System.out.println("Item not found in cart");
+	}
+	
+	public static void filterCart(Scanner scanner, Cart cart) {
+		int input;
+		while(true) {
+			cart.viewCart();
+			System.out.println("Options: ");
+			System.out.println("----------------------------------");
+			System.out.println("1. Filter by ID");
+			System.out.println("2. Filter by title");
+			System.out.println("0. Back");
+			System.out.println("----------------------------------");
+			System.out.println("Please choose a number: 0-1-2");
+			input = scanner.nextInt();
+			scanner.nextLine();
+			
+			switch(input) {
+			case 0: return;
+			case 1:
+				System.out.println("Enter ID:");
+				input = scanner.nextInt();
+				cart.filterMedia(input);
+				break;
+			case 2:
+				System.out.println("Enter keyword(s), separated by spaces:");
+				String[] keywords = scanner.nextLine().split(" ");
+				cart.filterMedia(keywords);
+				break;
+			default:
+				System.out.println("Incorrect option! Please choose again:");
+			}
+		}
 	}
 	
 }

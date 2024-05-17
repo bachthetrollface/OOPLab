@@ -38,6 +38,12 @@ public class CompactDisc extends Disc implements Playable {
 		}
 	}
 	
+	public void addTrack(Track... tracks) {
+		for (Track track : tracks) {
+			addTrack(track);
+		}
+	}
+	
 	public void removeTrack(Track track) {
 		if (tracks.contains(track)) {
 			tracks.remove(track);

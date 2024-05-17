@@ -20,6 +20,12 @@ public class Store {
 		}
 	}
 	
+	public void addMedia(Media... medias) {
+		for (Media media : medias) {
+			addMedia(media);
+		}
+	}
+	
 	public void removeMedia(Media media) {
 		if (itemsInStore.contains(media)) {
 			itemsInStore.remove(media);
