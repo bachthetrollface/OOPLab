@@ -14,7 +14,12 @@ public class DigitalVideoDisc extends Disc implements Playable {
 		super(title, category, cost, director, length);
 	}
 	
+	@Override
 	public void play() {
+		if (getLength() <= 0) {
+			System.out.println("Cannot play track with non-positive length");
+			return;
+		}
 		System.out.println("Playing DVD: " + getTitle());
 		System.out.println("DVD length: " + getLength());
 	}

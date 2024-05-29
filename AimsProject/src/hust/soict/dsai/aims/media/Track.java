@@ -18,9 +18,14 @@ public class Track implements Playable {
 		return length;
 	}
 	
+	@Override
 	public void play() {
-		System.out.println("Playing track: " + getTitle());
-		System.out.println("Track length: " + getLength());
+		if (length <= 0) {
+			System.out.println("Cannot play track with non-positive length");
+			return;
+		}
+		System.out.println("Playing track: " + title);
+		System.out.println("Track length: " + length);
 	}
 	
 	public boolean equals(Object other) {

@@ -98,23 +98,12 @@ public class StoreScreen extends JFrame {
 		
 		ArrayList<Media> mediaInStore = store.getItemsInStore();
 		for (int i = 0; i < 3; i++) {
-			MediaStore cell = new MediaStore(mediaInStore.get(i));
+			MediaStore cell = new MediaStore(mediaInStore.get(i), cart);
 			center.add(cell);
 		}
 		
 		return center;
 	}
 	
-	private class ButtonListener implements ActionListener {
-
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			String button = e.getActionCommand();
-			if (button.equals("Add to cart")) {
-//				cart.addMedia(cell.getMedia());
-			}
-		}
-		
-	}
 	
 }

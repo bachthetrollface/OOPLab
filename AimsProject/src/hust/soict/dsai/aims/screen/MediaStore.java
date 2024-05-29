@@ -13,16 +13,19 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-
+import hust.soict.dsai.aims.cart.Cart;
 import hust.soict.dsai.aims.media.Media;
 import hust.soict.dsai.aims.media.Playable;
 
 public class MediaStore extends JPanel {
 
 	private Media media;
+	private Cart cart;
+	private ActionListener btnListener = new ButtonListener();
 	
-	public MediaStore(Media media) {
+	public MediaStore(Media media, Cart cart) {
 		this.media = media;
+		this.cart = cart;
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		
 		JLabel title = new JLabel(media.getTitle());
@@ -36,12 +39,12 @@ public class MediaStore extends JPanel {
 		container.setLayout(new FlowLayout(FlowLayout.CENTER));
 		
 		JButton addToCart = new JButton("Add to cart");
-//		addToCart.addActionListener(btnListener);
+		addToCart.addActionListener(btnListener);
 		container.add(addToCart);
 		
 		if (media instanceof Playable) {
 			JButton play = new JButton("Play");
-//			play.addActionListener(btnListener);
+			play.addActionListener(btnListener);
 			container.add(play);
 		}
 		
@@ -54,7 +57,17 @@ public class MediaStore extends JPanel {
 		this.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 	}
 	
-	public Media getMedia() {
-		return media;
+	private class ButtonListener implements ActionListener {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			String button = e.getActionCommand();
+			if (button.equals("Add to cart")) {
+				cart.addMedia(media);
+			} else if (button.equals("Play")) {
+				Playable playable = (Playable) media;
+				playable.play();
+			}
+		}	
 	}
+	
 }
