@@ -65,5 +65,8 @@ public class Store {
 		return result;
 	}
 	
+	public ArrayList<Media> getItemsInStore() {
+		return itemsInStore;
+	}
 	
 }

@@ -1,24 +1,48 @@
 package hust.soict.dsai.aims.screen;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
+import hust.soict.dsai.aims.cart.Cart;
+import hust.soict.dsai.aims.media.Media;
 import hust.soict.dsai.aims.store.Store;
 
-public class StoreScreen {
+public class StoreScreen extends JFrame {
 
 	private Store store;
+	private Cart cart;
+	
+	public StoreScreen(Store store, Cart cart) {
+		this.store = store;
+		this.cart = cart;
+		Container cp = getContentPane();
+		cp.setLayout(new BorderLayout());
+		
+		cp.add(createNorth(), BorderLayout.NORTH);
+		cp.add(createCenter(), BorderLayout.CENTER);
+		
+		setVisible(true);
+		setTitle("Store");
+		setSize(1024, 768);
+	}
 	
 	JPanel createNorth() {
 		JPanel north = new JPanel();
@@ -67,4 +91,30 @@ public class StoreScreen {
 		
 		return header;
 	}
+	
+	JPanel createCenter() {
+		JPanel center = new JPanel();
+		center.setLayout(new GridLayout(3, 3, 2, 2));
+		
+		ArrayList<Media> mediaInStore = store.getItemsInStore();
+		for (int i = 0; i < 3; i++) {
+			MediaStore cell = new MediaStore(mediaInStore.get(i));
+			center.add(cell);
+		}
+		
+		return center;
+	}
+	
+	private class ButtonListener implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			String button = e.getActionCommand();
+			if (button.equals("Add to cart")) {
+//				cart.addMedia(cell.getMedia());
+			}
+		}
+		
+	}
+	
 }

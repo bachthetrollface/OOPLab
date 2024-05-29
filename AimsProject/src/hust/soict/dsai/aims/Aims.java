@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import hust.soict.dsai.aims.cart.Cart;
 import hust.soict.dsai.aims.media.*;
+import hust.soict.dsai.aims.screen.StoreScreen;
 import hust.soict.dsai.aims.store.Store;
 
 public class Aims {
@@ -13,6 +14,7 @@ public class Aims {
 	public static void main(String[] args) {
 		initializeStore();
 		Cart anOrder = new Cart();
+		StoreScreen screen = new StoreScreen(store, anOrder);
 		Scanner scanner = new Scanner(System.in);
 		showMenu(scanner, anOrder);
 		scanner.close();
