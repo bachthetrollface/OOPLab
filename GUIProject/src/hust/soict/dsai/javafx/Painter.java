@@ -10,12 +10,12 @@ public class Painter extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-//		Parent root = FXMLLoader.load(getClass().getResource("Painter.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("Painter.fxml"));
 		
-		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(getClass().getResource("Painter.fxml"));
-		loader.setController(new PainterController());
-		Parent root = loader.load();
+//		FXMLLoader loader = new FXMLLoader();
+//		loader.setLocation(getClass().getResource("Painter.fxml"));
+//		loader.setController(new PainterController());
+//		Parent root = loader.load();
 		
 		Scene scene = new Scene(root);
 		primaryStage.setScene(scene);
