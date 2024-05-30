@@ -1,50 +1,30 @@
 package hust.soict.dsai.test.cart;
 import hust.soict.dsai.aims.cart.Cart;
+import hust.soict.dsai.aims.media.Book;
+import hust.soict.dsai.aims.media.CompactDisc;
 import hust.soict.dsai.aims.media.DigitalVideoDisc;
+import hust.soict.dsai.aims.media.Track;
+import hust.soict.dsai.aims.screen.CartScreen;
 
 public class CartTest {
 
 	public static void main(String[] args) {
 		Cart anOrder = new Cart();
+		Book book1 = new Book("Harry Potter Vol. 1", "Magical", 19.99f);
+		book1.addAuthor("J. K. Rowling");
 		
-		DigitalVideoDisc dvd1 = new DigitalVideoDisc("The Lion King", 
-				"Animation", "Roger Allers", 87, 19.95f);
+		CompactDisc cd1 = new CompactDisc("The Marshall Mathers LP", "Rap", 30.00f, "Dr. Dre", "Eminem");
+		Track track1 = new Track("Stan", 5);
+		Track track2 = new Track("Criminal", 4);
+		cd1.addTrack(track1, track2);
 		
-		DigitalVideoDisc dvd2 = new DigitalVideoDisc("Star Wars", 
-				"Science Fiction", "George Lucas", 87, 24.95f);
+		DigitalVideoDisc dvd1 = new DigitalVideoDisc("Star Wars", "Sci-fi", 35, "George Lucas", 150);
 		
-		DigitalVideoDisc dvd3 = new DigitalVideoDisc("Aladin", 
-				"Animation", 18.99f);
+		anOrder.addMedia(book1);
+		anOrder.addMedia(dvd1);
+		anOrder.addMedia(cd1);
 		
-		anOrder.addDigitalVideoDisc(dvd1, dvd2, dvd3, dvd2, dvd1);
-		anOrder.addDigitalVideoDisc(dvd2, dvd3);
-		anOrder.searchDigitalVideoDisc(0);
-		anOrder.searchDigitalVideoDisc(3);
-		anOrder.searchDigitalVideoDisc("lion,star");
-		
-//		anOrder.showCart();
-//		
-//		System.out.print("Total cost is: ");
-//		System.out.print(anOrder.totalCost());
-//		System.out.println();
-		
-//		anOrder.removeDigitalVideoDisc(dvd2);
-//		anOrder.removeDigitalVideoDisc(dvd2);
-//		anOrder.removeDigitalVideoDisc(dvd2);
-//		anOrder.removeDigitalVideoDisc(dvd1);
-//		anOrder.removeDigitalVideoDisc(dvd1);
-//		anOrder.removeDigitalVideoDisc(dvd1); // Returns result as not found
-//		// Remaining: 1 dvd2 + 2 dvd3 -> 24.95 + 2*18.99 = 62.93
-//		
-//		System.out.print("Total cost is: ");
-//		System.out.print(anOrder.totalCost());
-//		System.out.println();
-		
-//		System.out.println(dvd1.getCategory());
-//		System.out.println(dvd1.getTitle());
-//		System.out.println(dvd1.getDirector());
-//		System.out.println(dvd1.getLength());
-//		System.out.println(dvd1.getCost());
+		CartScreen screen = new CartScreen(anOrder);
 
 	}
 
