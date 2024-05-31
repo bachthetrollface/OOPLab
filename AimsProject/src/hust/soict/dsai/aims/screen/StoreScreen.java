@@ -58,7 +58,9 @@ public class StoreScreen extends JFrame {
 		JMenu menu = new JMenu("Options");
 		
 		JMenu smUpdateStore = new JMenu("Update Store");
-		smUpdateStore.add(new JMenuItem("Add Book"));
+		JMenuItem item = new JMenuItem("Add Book");
+		item.setActionCommand("Add Book");
+		smUpdateStore.add(item);
 		smUpdateStore.add(new JMenuItem("Add CD"));
 		smUpdateStore.add(new JMenuItem("Add DVD"));
 		
