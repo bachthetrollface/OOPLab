@@ -70,7 +70,7 @@
             <TableView fx:id="tblMedia">
               <columns>
                 <TableColumn fx:id="colMediaTitle" prefWidth="75.0" text="Title" />
-                <TableColumn fx:id="colMediacategory" prefWidth="75.0" text="Category" />
+                <TableColumn fx:id="colMediaCategory" prefWidth="75.0" text="Category" />
                   <TableColumn fx:id="colMediaCost" prefWidth="75.0" text="Cost" />
               </columns>
                <columnResizePolicy>
@@ -79,8 +79,8 @@
             </TableView>
             <ButtonBar prefHeight="40.0" prefWidth="200.0">
               <buttons>
-                  <Button mnemonicParsing="false" text="Play" />
-                <Button mnemonicParsing="false" text="Remove" />
+                  <Button fx:id="btnPlay" mnemonicParsing="false" text="Play" />
+                <Button fx:id="btnRemove" mnemonicParsing="false" text="Remove" />
               </buttons>
             </ButtonBar>
          </children>
