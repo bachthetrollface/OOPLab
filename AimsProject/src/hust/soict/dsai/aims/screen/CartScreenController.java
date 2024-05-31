@@ -3,7 +3,7 @@ package hust.soict.dsai.aims.screen;
 import hust.soict.dsai.aims.cart.Cart;
 import hust.soict.dsai.aims.media.Media;
 import hust.soict.dsai.aims.media.Playable;
-import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.StringProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -55,13 +55,14 @@ public class CartScreenController {
 						}
 					}});
 		
-		lbTotalCost.textProperty().bind(new SimpleObjectProperty<String>("" + cart.totalCost()));
+		lbTotalCost.setText("" + cart.totalCost());
 	}
 	
 	@FXML
 	void btnRemovePressed(ActionEvent event) {
 		Media media = tblMedia.getSelectionModel().getSelectedItem();
 		cart.removeMedia(media);
+		lbTotalCost.setText("" + cart.totalCost());
 	}
 	
 	@FXML
