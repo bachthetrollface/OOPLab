@@ -24,7 +24,7 @@ public class AddBookToStoreScreen extends AddItemToStoreScreen {
 			public void run() {
 				try {
 					FXMLLoader loader = new FXMLLoader();
-					loader.setLocation(getClass().getResource("fxml/AddBookToStore.fxml"));
+					loader.setLocation(getClass().getResource("AddBookToStore.fxml"));
 					AddBookScreenController controller = new AddBookScreenController(store);
 					loader.setController(controller);
 					Parent root = loader.load();

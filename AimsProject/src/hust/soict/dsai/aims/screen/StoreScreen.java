@@ -116,17 +116,18 @@ public class StoreScreen extends JFrame {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			String button = e.getActionCommand();
+			
 			if (button.equals("Add Book")) {
-				AddBookToStoreScreen newScreen = new AddBookToStoreScreen(store);
 				setVisible(false);
+				revalidate();
+				AddBookToStoreScreen newScreen = new AddBookToStoreScreen(store);
 				newScreen.revalidate();
 			} else if (button.equals("Add CD")) {
 				AddCompactDiscToStoreScreen newScreen = new AddCompactDiscToStoreScreen(store);
 				setVisible(false);
 			} else if (button.equals("Add DVD")) {
-				
+				AddDigitalVideoDiscToStoreScreen newScreen = new AddDigitalVideoDiscToStoreScreen(store);
 			} else if (button.equals("View cart")) {
-				
 				CartScreen newScreen = new CartScreen(cart);
 				setVisible(false);
 				newScreen.revalidate();
