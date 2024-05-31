@@ -3,11 +3,13 @@ package hust.soict.dsai.aims.screen;
 import hust.soict.dsai.aims.cart.Cart;
 import hust.soict.dsai.aims.media.Media;
 import hust.soict.dsai.aims.media.Playable;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -22,6 +24,8 @@ public class CartScreenController {
 	@FXML private TableColumn<Media, Float> colMediaCost;
 	@FXML private Button btnPlay;
 	@FXML private Button btnRemove;
+	@FXML private Button btnPlaceOrder;
+	@FXML private Label lbTotalCost;
 	
 	public CartScreenController(Cart cart) {
 		super();
@@ -50,12 +54,29 @@ public class CartScreenController {
 							updateButtonBar(newValue);
 						}
 					}});
+		
+		lbTotalCost.textProperty().bind(new SimpleObjectProperty<String>("" + cart.totalCost()));
 	}
 	
 	@FXML
 	void btnRemovePressed(ActionEvent event) {
 		Media media = tblMedia.getSelectionModel().getSelectedItem();
 		cart.removeMedia(media);
+	}
+	
+	@FXML
+	void btnPlaceOrderPressed(ActionEvent event) {
+		cart.clear();
+		System.out.println("An order is created.");
+	}
+	
+	@FXML
+	void btnPlayPressed(ActionEvent event) {
+		Media media = tblMedia.getSelectionModel().getSelectedItem();
+		if (media instanceof Playable) {
+			Playable playable = (Playable) media;
+			playable.play();
+		}
 	}
 	
 	void updateButtonBar(Media media) {
