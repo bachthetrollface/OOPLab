@@ -125,8 +125,9 @@ public class StoreScreen extends JFrame {
 			} else if (button.equals("Add DVD")) {
 				
 			} else if (button.equals("View cart")) {
-				CartScreen newScreen = new CartScreen(cart);
 				setVisible(false);
+				CartScreen newScreen = new CartScreen(cart);
+//				setVisible(false);
 			}
 		}
 		
