@@ -17,13 +17,8 @@ public class Cart {
 	}
 
 	public void addMedia(Media media) {
-		if (itemsOrdered.contains(media)) {
-			System.out.println("Item is already in cart");
-			return;
-		} else {
 			itemsOrdered.add(media);
 			System.out.println(media.getTitle() + " is added to cart");
-		}
 	}
 	
 	public void removeMedia(Media media) {

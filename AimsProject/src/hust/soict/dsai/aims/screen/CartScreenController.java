@@ -55,14 +55,14 @@ public class CartScreenController {
 						}
 					}});
 		
-		lbTotalCost.setText("" + cart.totalCost());
+		lbTotalCost.setText(cart.totalCost() + " $");
 	}
 	
 	@FXML
 	void btnRemovePressed(ActionEvent event) {
 		Media media = tblMedia.getSelectionModel().getSelectedItem();
 		cart.removeMedia(media);
-		lbTotalCost.setText("" + cart.totalCost());
+		lbTotalCost.setText(cart.totalCost() + " $");
 	}
 	
 	@FXML
