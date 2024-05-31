@@ -23,6 +23,7 @@ import javax.swing.JPanel;
 
 import hust.soict.dsai.aims.cart.Cart;
 import hust.soict.dsai.aims.media.Media;
+import hust.soict.dsai.aims.media.Playable;
 import hust.soict.dsai.aims.store.Store;
 
 public class StoreScreen extends JFrame {
@@ -63,6 +64,8 @@ public class StoreScreen extends JFrame {
 		menu.add(smUpdateStore);
 		menu.add(new JMenuItem("View store"));
 		menu.add(new JMenuItem("View cart"));
+		
+		menu.addActionListener(new OptionListener());
 		
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setLayout(new FlowLayout(FlowLayout.LEFT));
@@ -105,5 +108,21 @@ public class StoreScreen extends JFrame {
 		return center;
 	}
 	
-	
+	private class OptionListener implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			String button = e.getActionCommand();
+			if (button.equals("Add Book")) {
+				AddBookToStoreScreen newScreen = new AddBookToStoreScreen(store);
+			} else if (button.equals("Add CD")) {
+				AddCompactDiscToStoreScreen newScreen = new AddCompactDiscToStoreScreen(store);
+			} else if (button.equals("Add DVD")) {
+				
+			} else if (button.equals("View cart")) {
+				CartScreen newScreen = new CartScreen(cart);
+			}
+		}
+		
+	}
 }

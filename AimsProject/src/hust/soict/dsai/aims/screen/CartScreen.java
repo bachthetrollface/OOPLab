@@ -29,11 +29,10 @@ public class CartScreen extends JFrame {
 			public void run() {
 				try {
 					FXMLLoader loader = new FXMLLoader();
-					loader.setLocation(getClass().getResource("Cart.fxml"));
+					loader.setLocation(getClass().getResource("fxml/Cart.fxml"));
 					CartScreenController controller = new CartScreenController(cart);
 					loader.setController(controller);
 					Parent root = loader.load();
-//					Parent root = FXMLLoader.load(getClass().getResource("Cart.fxml"));
 					fxPanel.setScene(new Scene(root));
 				} catch (IOException e) {
 					e.printStackTrace();
