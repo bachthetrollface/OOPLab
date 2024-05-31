@@ -118,6 +118,7 @@ public class StoreScreen extends JFrame {
 			String button = e.getActionCommand();
 			if (button.equals("Add Book")) {
 				AddBookToStoreScreen newScreen = new AddBookToStoreScreen(store);
+				newScreen.setVisible(true);
 				setVisible(false);
 			} else if (button.equals("Add CD")) {
 				AddCompactDiscToStoreScreen newScreen = new AddCompactDiscToStoreScreen(store);
@@ -125,9 +126,10 @@ public class StoreScreen extends JFrame {
 			} else if (button.equals("Add DVD")) {
 				
 			} else if (button.equals("View cart")) {
-				setVisible(false);
+				
 				CartScreen newScreen = new CartScreen(cart);
-//				setVisible(false);
+				newScreen.setVisible(true);
+				setVisible(false);
 			}
 		}
 		

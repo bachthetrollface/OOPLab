@@ -68,6 +68,7 @@ public class CartScreenController {
 	@FXML
 	void btnPlaceOrderPressed(ActionEvent event) {
 		cart.clear();
+		lbTotalCost.setText(cart.totalCost() + " $");
 		System.out.println("An order is created.");
 	}
 	
