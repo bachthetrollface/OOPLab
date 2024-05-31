@@ -29,7 +29,7 @@ public class CartScreen extends JFrame {
 			public void run() {
 				try {
 					FXMLLoader loader = new FXMLLoader();
-					loader.setLocation(getClass().getResource("/fxml/Cart.fxml"));
+					loader.setLocation(getClass().getResource("Cart.fxml"));
 					CartScreenController controller = new CartScreenController(cart);
 					loader.setController(controller);
 					Parent root = loader.load();

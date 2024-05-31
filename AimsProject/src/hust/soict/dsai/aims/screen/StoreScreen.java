@@ -54,6 +54,7 @@ public class StoreScreen extends JFrame {
 	}
 	
 	JMenuBar createMenuBar() {
+		ActionListener listener = new OptionListener();
 		JMenu menu = new JMenu("Options");
 		
 		JMenu smUpdateStore = new JMenu("Update Store");
@@ -61,11 +62,13 @@ public class StoreScreen extends JFrame {
 		smUpdateStore.add(new JMenuItem("Add CD"));
 		smUpdateStore.add(new JMenuItem("Add DVD"));
 		
+		smUpdateStore.addActionListener(listener);
+		
 		menu.add(smUpdateStore);
 		menu.add(new JMenuItem("View store"));
 		menu.add(new JMenuItem("View cart"));
 		
-		menu.addActionListener(new OptionListener());
+		menu.addActionListener(listener);
 		
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setLayout(new FlowLayout(FlowLayout.LEFT));
@@ -115,12 +118,15 @@ public class StoreScreen extends JFrame {
 			String button = e.getActionCommand();
 			if (button.equals("Add Book")) {
 				AddBookToStoreScreen newScreen = new AddBookToStoreScreen(store);
+				setVisible(false);
 			} else if (button.equals("Add CD")) {
 				AddCompactDiscToStoreScreen newScreen = new AddCompactDiscToStoreScreen(store);
+				setVisible(false);
 			} else if (button.equals("Add DVD")) {
 				
 			} else if (button.equals("View cart")) {
 				CartScreen newScreen = new CartScreen(cart);
+				setVisible(false);
 			}
 		}
 		
