@@ -16,7 +16,6 @@
     <fullyQualifiedTypeName name="java.util.Comparator"/>
     <fullyQualifiedTypeName name="hust.soict.dsai.aims.media.Disc"/>
     <fullyQualifiedTypeName name="java.util.Scanner"/>
-    <fullyQualifiedTypeName name="hust.soict.dsai.aims.store.Store"/>
     <fullyQualifiedTypeName name="javafx.scene.input.MouseEvent"/>
     <fullyQualifiedTypeName name="javafx.scene.shape.Circle"/>
     <fullyQualifiedTypeName name="javafx.scene.paint.Color"/>
@@ -34,7 +33,6 @@
     <fullyQualifiedTypeName name="hust.soict.dsai.aims.screen.CartScreen"/>
     <fullyQualifiedTypeName name="javafx.fxml.Initializable"/>
     <fullyQualifiedTypeName name="hust.soict.dsai.aims.cart.Cart"/>
-    <fullyQualifiedTypeName name="javafx.fxml.FXML"/>
     <fullyQualifiedTypeName name="javafx.scene.control.TableView"/>
     <fullyQualifiedTypeName name="hust.soict.dsai.aims.media.Media"/>
     <fullyQualifiedTypeName name="javafx.scene.control.TableColumn"/>
@@ -42,6 +40,10 @@
     <fullyQualifiedTypeName name="javafx.scene.control.Button"/>
     <fullyQualifiedTypeName name="javafx.beans.value.ChangeListener"/>
     <fullyQualifiedTypeName name="hust.soict.dsai.aims.media.Playable"/>
-    <fullyQualifiedTypeName name="javafx.event.ActionEvent"/>
     <fullyQualifiedTypeName name="javafx.scene.control.Label"/>
+    <fullyQualifiedTypeName name="javax.swing.JFrame"/>
+    <fullyQualifiedTypeName name="hust.soict.dsai.aims.store.Store"/>
+    <fullyQualifiedTypeName name="javafx.fxml.FXML"/>
+    <fullyQualifiedTypeName name="javafx.event.ActionEvent"/>
+    <fullyQualifiedTypeName name="hust.soict.dsai.aims.media.Book"/>
 </qualifiedTypeNameHistroy>

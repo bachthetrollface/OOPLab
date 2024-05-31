@@ -59,18 +59,26 @@ public class StoreScreen extends JFrame {
 		
 		JMenu smUpdateStore = new JMenu("Update Store");
 		JMenuItem item = new JMenuItem("Add Book");
-		item.setActionCommand("Add Book");
+		item.addActionListener(listener);
 		smUpdateStore.add(item);
-		smUpdateStore.add(new JMenuItem("Add CD"));
-		smUpdateStore.add(new JMenuItem("Add DVD"));
 		
-		smUpdateStore.addActionListener(listener);
+		item = new JMenuItem("Add CD");
+		item.addActionListener(listener);
+		smUpdateStore.add(item);
+		
+		item = new JMenuItem("Add DVD");
+		item.addActionListener(listener);
+		smUpdateStore.add(item);
 		
 		menu.add(smUpdateStore);
-		menu.add(new JMenuItem("View store"));
-		menu.add(new JMenuItem("View cart"));
 		
-		menu.addActionListener(listener);
+		item = new JMenuItem("View store");
+		item.addActionListener(listener);
+		menu.add(item);
+		
+		item = new JMenuItem("View cart");
+		item.addActionListener(listener);
+		menu.add(item);
 		
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setLayout(new FlowLayout(FlowLayout.LEFT));
@@ -120,19 +128,17 @@ public class StoreScreen extends JFrame {
 			String button = e.getActionCommand();
 			
 			if (button.equals("Add Book")) {
-				setVisible(false);
-				revalidate();
+//				setVisible(false);
 				AddBookToStoreScreen newScreen = new AddBookToStoreScreen(store);
-				newScreen.revalidate();
 			} else if (button.equals("Add CD")) {
 				AddCompactDiscToStoreScreen newScreen = new AddCompactDiscToStoreScreen(store);
-				setVisible(false);
+//				setVisible(false);
 			} else if (button.equals("Add DVD")) {
 				AddDigitalVideoDiscToStoreScreen newScreen = new AddDigitalVideoDiscToStoreScreen(store);
+//				setVisible(false);
 			} else if (button.equals("View cart")) {
 				CartScreen newScreen = new CartScreen(cart);
-				setVisible(false);
-				newScreen.revalidate();
+//				setVisible(false);
 			}
 		}
 		
