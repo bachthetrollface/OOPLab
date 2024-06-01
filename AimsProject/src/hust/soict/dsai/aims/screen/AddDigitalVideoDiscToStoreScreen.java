@@ -17,7 +17,7 @@ public class AddDigitalVideoDiscToStoreScreen extends AddItemToStoreScreen {
 		
 		JFXPanel fxPanel = new JFXPanel();
 		this.add(fxPanel);
-		this.setTitle("Cart");
+		this.setTitle("Add DVD");
 		this.setSize(400, 310);
 		this.setVisible(true);
 		
@@ -26,7 +26,7 @@ public class AddDigitalVideoDiscToStoreScreen extends AddItemToStoreScreen {
 			public void run() {
 				try {
 					FXMLLoader loader = new FXMLLoader();
-					loader.setLocation(getClass().getResource("fxml/AddItemToStore.fxml"));
+					loader.setLocation(getClass().getResource("AddDVDToStore.fxml"));
 					AddDVDScreenController controller = new AddDVDScreenController(cart, store);
 					loader.setController(controller);
 					Parent root = loader.load();

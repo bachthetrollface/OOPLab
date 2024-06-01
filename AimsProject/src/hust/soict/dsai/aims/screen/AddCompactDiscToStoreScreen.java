@@ -17,8 +17,8 @@ public class AddCompactDiscToStoreScreen extends AddItemToStoreScreen {
 		
 		JFXPanel fxPanel = new JFXPanel();
 		this.add(fxPanel);
-		this.setTitle("Cart");
-		this.setSize(400, 350);
+		this.setTitle("Add CD");
+		this.setSize(400, 400);
 		this.setVisible(true);
 		
 		Platform.runLater(new Runnable() {

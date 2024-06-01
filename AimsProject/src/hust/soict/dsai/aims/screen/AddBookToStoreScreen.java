@@ -17,8 +17,8 @@ public class AddBookToStoreScreen extends AddItemToStoreScreen {
 		
 		JFXPanel fxPanel = new JFXPanel();
 		this.add(fxPanel);
-		this.setTitle("Cart");
-		this.setSize(400, 300);
+		this.setTitle("Add Book");
+		this.setSize(400, 350);
 		this.setVisible(true);
 		
 		Platform.runLater(new Runnable() {
