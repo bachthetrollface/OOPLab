@@ -1,6 +1,8 @@
 package hust.soict.dsai.aims.media;
 
-public class Disc extends Media {
+import hust.soict.dsai.aims.exception.PlayerException;
+
+public class Disc extends Media implements Playable {
 
 	private String director;
 	private int length;
@@ -46,6 +48,7 @@ public class Disc extends Media {
 		System.out.println("Cost: $" + getCost());
 	}
 	
-	public void play() {} // for polymorph purposes
+	@Override
+	public void play() throws PlayerException {}
 	
 }

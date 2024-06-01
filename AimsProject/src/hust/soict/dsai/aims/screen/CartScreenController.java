@@ -86,7 +86,11 @@ public class CartScreenController {
 		Media media = tblMedia.getSelectionModel().getSelectedItem();
 		if (media instanceof Playable) {
 			Playable playable = (Playable) media;
-			playable.play();
+			try {
+				playable.play();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 	}
 	

@@ -59,13 +59,21 @@ public class MediaStore extends JPanel {
 	
 	private class ButtonListener implements ActionListener {
 		@Override
-		public void actionPerformed(ActionEvent e) {
-			String button = e.getActionCommand();
+		public void actionPerformed(ActionEvent event) {
+			String button = event.getActionCommand();
 			if (button.equals("Add to cart")) {
-				cart.addMedia(media);
+				try {
+					cart.addMedia(media);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 			} else if (button.equals("Play")) {
 				Playable playable = (Playable) media;
-				playable.play();
+				try {
+					playable.play();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 			}
 		}	
 	}

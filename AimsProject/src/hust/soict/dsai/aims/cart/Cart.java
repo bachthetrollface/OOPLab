@@ -9,6 +9,7 @@ import java.util.Collections;
 public class Cart {
 	
 	private ObservableList<Media> itemsOrdered = FXCollections.observableArrayList();
+	public static final int MAX_NUMBERS_ORDERED = 20;
 	
 	public Cart() {}
 	
@@ -16,9 +17,15 @@ public class Cart {
 		return itemsOrdered;
 	}
 
-	public void addMedia(Media media) {
+	public void addMedia(Media media) throws LimitExceededException {
+		if (itemsOrdered.size() < MAX_NUMBERS_ORDERED) {
 			itemsOrdered.add(media);
 			System.out.println(media.getTitle() + " is added to cart");
+		}
+		else {
+			throw new LimitExceededException("ERROR: The number of media" 
+					+ "has reached its limit");
+		}
 	}
 	
 	public void removeMedia(Media media) {
@@ -100,5 +107,11 @@ public class Cart {
 	
 	public void clear() {
 		itemsOrdered.clear();
+	}
+	
+	private class LimitExceededException extends Exception{
+		public LimitExceededException(String string) {
+			super(string);
+		}
 	}
 }

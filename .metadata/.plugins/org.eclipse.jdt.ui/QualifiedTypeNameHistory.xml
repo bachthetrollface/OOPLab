@@ -32,7 +32,6 @@
     <fullyQualifiedTypeName name="javafx.collections.FXCollections"/>
     <fullyQualifiedTypeName name="hust.soict.dsai.aims.screen.CartScreen"/>
     <fullyQualifiedTypeName name="javafx.fxml.Initializable"/>
-    <fullyQualifiedTypeName name="hust.soict.dsai.aims.cart.Cart"/>
     <fullyQualifiedTypeName name="javafx.scene.control.TableView"/>
     <fullyQualifiedTypeName name="hust.soict.dsai.aims.media.Media"/>
     <fullyQualifiedTypeName name="javafx.scene.control.TableColumn"/>
@@ -42,8 +41,13 @@
     <fullyQualifiedTypeName name="hust.soict.dsai.aims.media.Playable"/>
     <fullyQualifiedTypeName name="javafx.scene.control.Label"/>
     <fullyQualifiedTypeName name="javax.swing.JFrame"/>
-    <fullyQualifiedTypeName name="hust.soict.dsai.aims.store.Store"/>
     <fullyQualifiedTypeName name="javafx.fxml.FXML"/>
     <fullyQualifiedTypeName name="javafx.event.ActionEvent"/>
     <fullyQualifiedTypeName name="hust.soict.dsai.aims.media.Book"/>
+    <fullyQualifiedTypeName name="javafx.scene.control.MenuItem"/>
+    <fullyQualifiedTypeName name="hust.soict.dsai.aims.cart.Cart"/>
+    <fullyQualifiedTypeName name="hust.soict.dsai.aims.store.Store"/>
+    <fullyQualifiedTypeName name="hust.soict.dsai.aims.media.CompactDisc"/>
+    <fullyQualifiedTypeName name="hust.soict.dsai.aims.media.DigitalVideoDisc"/>
+    <fullyQualifiedTypeName name="hust.soict.dsai.aims.media.Track"/>
 </qualifiedTypeNameHistroy>

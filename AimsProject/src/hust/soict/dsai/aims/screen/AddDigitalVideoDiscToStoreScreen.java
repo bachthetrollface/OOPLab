@@ -18,7 +18,7 @@ public class AddDigitalVideoDiscToStoreScreen extends AddItemToStoreScreen {
 		JFXPanel fxPanel = new JFXPanel();
 		this.add(fxPanel);
 		this.setTitle("Add DVD");
-		this.setSize(400, 310);
+		this.setSize(400, 350);
 		this.setVisible(true);
 		
 		Platform.runLater(new Runnable() {
