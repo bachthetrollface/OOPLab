@@ -3,6 +3,7 @@ package hust.soict.dsai.aims.screen;
 import hust.soict.dsai.aims.cart.Cart;
 import hust.soict.dsai.aims.media.Media;
 import hust.soict.dsai.aims.media.Playable;
+import hust.soict.dsai.aims.store.Store;
 import javafx.beans.property.StringProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -10,6 +11,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -17,6 +19,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 public class CartScreenController {
 
 	private Cart cart;
+	private Store store;
 	
 	@FXML private TableView<Media> tblMedia;
 	@FXML private TableColumn<Media, String> colMediaTitle;
@@ -27,9 +30,15 @@ public class CartScreenController {
 	@FXML private Button btnPlaceOrder;
 	@FXML private Label lbTotalCost;
 	
-	public CartScreenController(Cart cart) {
+	@FXML private MenuItem menuAddCD;
+    @FXML private MenuItem menuAddBook;
+    @FXML private MenuItem menuAddDVD;
+    @FXML private MenuItem menuViewStore;
+	
+	public CartScreenController(Cart cart, Store store) {
 		super();
 		this.cart = cart;
+		this.store = store;
 	}
 	
 	@FXML
@@ -89,4 +98,24 @@ public class CartScreenController {
 			btnPlay.setVisible(false);
 		}
 	}
+	
+	@FXML
+    void menuAddBookPressed(ActionEvent event) {
+    	AddBookToStoreScreen addCDScreen = new AddBookToStoreScreen(cart, store);
+    }
+    
+    @FXML
+    void menuAddDVDPressed(ActionEvent event) {
+    	AddDigitalVideoDiscToStoreScreen addDVDScreen = new AddDigitalVideoDiscToStoreScreen(cart, store);
+    }
+    
+    @FXML
+    void menuViewStorePressed(ActionEvent event) {
+    	StoreScreen storeScreen = new StoreScreen(store, cart);
+    }
+    
+    @FXML
+    void menuAddCDPressed(ActionEvent event) {
+    	AddCompactDiscToStoreScreen addCDScreen = new AddCompactDiscToStoreScreen(cart, store);
+    }
 }

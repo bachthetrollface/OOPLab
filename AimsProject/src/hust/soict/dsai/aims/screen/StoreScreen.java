@@ -113,7 +113,7 @@ public class StoreScreen extends JFrame {
 		center.setLayout(new GridLayout(3, 3, 2, 2));
 		
 		ArrayList<Media> mediaInStore = store.getItemsInStore();
-		for (int i = 0; i < 3; i++) {
+		for (int i = 0; i < mediaInStore.size(); i++) {
 			MediaStore cell = new MediaStore(mediaInStore.get(i), cart);
 			center.add(cell);
 		}
@@ -122,25 +122,24 @@ public class StoreScreen extends JFrame {
 	}
 	
 	private class OptionListener implements ActionListener {
-
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			String button = e.getActionCommand();
 			
 			if (button.equals("Add Book")) {
-//				setVisible(false);
-				AddBookToStoreScreen newScreen = new AddBookToStoreScreen(store);
+				setVisible(false);
+				AddBookToStoreScreen newScreen = new AddBookToStoreScreen(cart, store);
 			} else if (button.equals("Add CD")) {
-				AddCompactDiscToStoreScreen newScreen = new AddCompactDiscToStoreScreen(store);
-//				setVisible(false);
+				setVisible(false);
+				AddCompactDiscToStoreScreen newScreen = new AddCompactDiscToStoreScreen(cart, store);
 			} else if (button.equals("Add DVD")) {
-				AddDigitalVideoDiscToStoreScreen newScreen = new AddDigitalVideoDiscToStoreScreen(store);
-//				setVisible(false);
+				setVisible(false);
+				AddDigitalVideoDiscToStoreScreen newScreen = new AddDigitalVideoDiscToStoreScreen(cart, store);
 			} else if (button.equals("View cart")) {
-				CartScreen newScreen = new CartScreen(cart);
-//				setVisible(false);
+				setVisible(false);
+				CartScreen newScreen = new CartScreen(cart, store);
 			}
-		}
-		
+		}	
 	}
+	
 }

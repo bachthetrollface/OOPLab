@@ -2,6 +2,7 @@ package hust.soict.dsai.aims.screen;
 
 import java.io.IOException;
 
+import hust.soict.dsai.aims.cart.Cart;
 import hust.soict.dsai.aims.store.Store;
 import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;
@@ -11,12 +12,13 @@ import javafx.scene.Scene;
 
 public class AddCompactDiscToStoreScreen extends AddItemToStoreScreen {
 
-	public AddCompactDiscToStoreScreen(Store store) {
-		super(store);
+	public AddCompactDiscToStoreScreen(Cart cart, Store store) {
+		super(cart, store);
 		
 		JFXPanel fxPanel = new JFXPanel();
 		this.add(fxPanel);
 		this.setTitle("Cart");
+		this.setSize(400, 350);
 		this.setVisible(true);
 		
 		Platform.runLater(new Runnable() {
@@ -24,8 +26,8 @@ public class AddCompactDiscToStoreScreen extends AddItemToStoreScreen {
 			public void run() {
 				try {
 					FXMLLoader loader = new FXMLLoader();
-					loader.setLocation(getClass().getResource("fxml/AddItemToStore.fxml"));
-					AddCDScreenController controller = new AddCDScreenController(store);
+					loader.setLocation(getClass().getResource("AddCDToStore.fxml"));
+					AddCDScreenController controller = new AddCDScreenController(cart, store);
 					loader.setController(controller);
 					Parent root = loader.load();
 					fxPanel.setScene(new Scene(root));
