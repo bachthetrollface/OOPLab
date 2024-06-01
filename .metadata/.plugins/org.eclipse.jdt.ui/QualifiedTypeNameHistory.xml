@@ -50,4 +50,6 @@
     <fullyQualifiedTypeName name="hust.soict.dsai.aims.media.CompactDisc"/>
     <fullyQualifiedTypeName name="hust.soict.dsai.aims.media.DigitalVideoDisc"/>
     <fullyQualifiedTypeName name="hust.soict.dsai.aims.media.Track"/>
+    <fullyQualifiedTypeName name="hust.soict.dsai.aims.exception.PlayerException"/>
+    <fullyQualifiedTypeName name="hust.soict.dsai.aims.exception.LimitExceededException"/>
 </qualifiedTypeNameHistroy>

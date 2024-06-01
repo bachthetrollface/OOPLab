@@ -1,5 +1,6 @@
 package hust.soict.dsai.aims.cart;
 
+import hust.soict.dsai.aims.exception.LimitExceededException;
 import hust.soict.dsai.aims.media.Disc;
 import hust.soict.dsai.aims.media.Media;
 import javafx.collections.FXCollections;
@@ -109,9 +110,4 @@ public class Cart {
 		itemsOrdered.clear();
 	}
 	
-	private class LimitExceededException extends Exception{
-		public LimitExceededException(String string) {
-			super(string);
-		}
-	}
 }
