@@ -30,7 +30,7 @@ public abstract class Media {
 		this.category = category;
 		this.cost = cost;
 	}
-
+	
 	public int getId() {
 		return id;
 	}
@@ -56,10 +56,15 @@ public abstract class Media {
 	}
 	
 	public boolean equals(Object other) {
-		if (other instanceof Media) {
+		try {
 			Media otherMedia = (Media) other;
 			return this.title.equals(otherMedia.getTitle());
-		} else return false;
+		} catch (NullPointerException e) {
+			System.err.println("ERROR: Invalid object for comparison");
+		} catch (ClassCastException e) {
+			return false; // Cannot cast other object to Media -> not an instance of Media -> not equal
+		}
+		return false;
 	}
 	
 	public abstract void showDetails();

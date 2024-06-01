@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import hust.soict.dsai.aims.cart.Cart;
 import hust.soict.dsai.aims.media.*;
+import hust.soict.dsai.aims.screen.StoreScreen;
 import hust.soict.dsai.aims.store.Store;
 
 public class Aims {
@@ -13,6 +14,7 @@ public class Aims {
 	public static void main(String[] args) {
 		initializeStore();
 		Cart anOrder = new Cart();
+		StoreScreen screen = new StoreScreen(store, anOrder);
 		Scanner scanner = new Scanner(System.in);
 		showMenu(scanner, anOrder);
 		scanner.close();
@@ -121,13 +123,21 @@ public class Aims {
 			switch(input) {
 			case 0: return;
 			case 1:
-				cart.addMedia(media);
+				try {
+					cart.addMedia(media);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 				System.out.println(media.getTitle() + " is added to cart.");
 				break;
 			case 2:
 				if(media instanceof Playable) {
 					Playable p = (Playable) media;
-					p.play();
+					try {
+						p.play();
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
 					break;
 				}
 			default:
@@ -309,7 +319,11 @@ public class Aims {
 			Media media = store.findMedia(title, id);
 			if (media instanceof Playable) {
 				Playable p = (Playable) media;
-				p.play();
+				try {
+					p.play();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 			}
 			else System.out.println("The selected media is unplayable.");
 		}
@@ -325,7 +339,11 @@ public class Aims {
 		
 		if (store.isAvailable(title, id)) {
 			Media result = store.findMedia(title, id);
-			cart.addMedia(result);
+			try {
+				cart.addMedia(result);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		else System.out.println("Item not found in store");
 	}
@@ -355,7 +373,11 @@ public class Aims {
 			Media result = cart.findMedia(title, id);
 			if (result instanceof Playable) {
 				Playable p = (Playable) result;
-				p.play();
+				try {
+					p.play();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 			}
 			else System.out.println("The selected media is unplayable.");
 		}
