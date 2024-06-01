@@ -5,9 +5,9 @@ import hust.soict.dsai.aims.store.Store;
 
 public class StoreTest {
 
-	public static void main(String[] args) {
-		StoreScreen screen = new StoreScreen(new Store());
-
-	}
+//	public static void main(String[] args) {
+//		StoreScreen screen = new StoreScreen(new Store());
+//
+//	}
 
 }
